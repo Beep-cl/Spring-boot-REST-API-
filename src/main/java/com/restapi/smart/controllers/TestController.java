@@ -17,32 +17,19 @@ public class TestController {
 
     private static final Logger log = LoggerFactory.getLogger(TestController.class);
 
-    @RequestMapping("signUp")
-    @PreAuthorize("hasRole('ROLE_USER')")
-    public String sign(){
-        return "정상동작";
-    }
-
-
-    @RequestMapping("chkhello")
-    @PreAuthorize("isAuthenticated()")
-    public String chkhello(){
-        return "정상동작 isAuth~ 로그인되어있으면";
-    }
-
-    @RequestMapping("chkhello2")
-    @PreAuthorize("isAnonymous()")
-    public String chkhello2(){
-        return "정상동작 isAnonymous ~ 로그인 안되어있으면";
-    }
-
+    //permitall이여서 인증없이 http 이루어졌으나, 인증객체가없어 nullpoint exception발생
     @GetMapping("/hello")
-    @PreAuthorize("hasRole('ROLE_DEFAULT')")
     public String getUsername(Authentication authentication) {
 
         PostAuthorizationToken token = (PostAuthorizationToken)authentication;
 
         return token.getAccountContext().getUsername();
+    }
+
+    @GetMapping("/chkhello")
+    public String getUsername() {
+
+        return "정상동작chk";
     }
 
 }
