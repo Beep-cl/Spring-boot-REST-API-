@@ -1,4 +1,5 @@
-# https://github.com/auth0/java-jwt / youtube 봄이네집 스프링 - (1) Spring Security - Auth0 JWT Library
+# https://github.com/auth0/java-jwt 
+# https://github.com/wheejuni/spring-jwt / youtube 봄이네집 스프링 - (1) Spring Security - Auth0 JWT Library
 # JPA -> Oracle mybatis로 변경해서 사용함
 # Spring-boot-REST-API
 ## Build Maven Project
