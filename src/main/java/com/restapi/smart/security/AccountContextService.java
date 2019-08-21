@@ -34,7 +34,8 @@ public class AccountContextService implements UserDetailsService {
         return getAccountContext(account);
     }
 
-    private AccountContext getAccountContext(Account account) {
+    private AccountContext getAccountContext(Account account)
+    {
         return AccountContext.fromAccountModel(account);
     }
 }

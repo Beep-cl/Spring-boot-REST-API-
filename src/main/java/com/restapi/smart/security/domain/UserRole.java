@@ -8,7 +8,7 @@ import java.util.NoSuchElementException;
 @Getter
 public enum UserRole {
 
-    USER("[ROLE_USER]"), ADMIN("[ROLE_ADMIN]");
+    USER("[ROLE_USER]"), ADMIN("[ROLE_ADMIN]"), DEFAULT("[ROLE_DEFAULT]");
     //,SYSMASTER("[ROLE_SYSMASTER]"), FOOD("[ROLE_BD_FOOD]"), OFFICE("[ROLE_BD_OFFICE]")
 
     private String roleName;

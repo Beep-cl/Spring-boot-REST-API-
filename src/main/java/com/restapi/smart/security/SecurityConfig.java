@@ -116,7 +116,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         http
                 .authorizeRequests()
-                .antMatchers("/h2-console**").permitAll();
+                .antMatchers("/test/**").permitAll();
 
         http
                 .addFilterBefore(formLoginFilter(), UsernamePasswordAuthenticationFilter.class)
