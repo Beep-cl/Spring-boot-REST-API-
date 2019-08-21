@@ -1,5 +1,5 @@
 spring:
   jwt:
     signingKey: test
-    issuer: bomee
+    issuer: kosmo50
     expiry: 14400

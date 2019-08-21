@@ -2,7 +2,7 @@ package com.restapi.smart.security.filters;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.restapi.smart.dtos.FormLoginDto;
+import com.restapi.smart.security.dtos.FormLoginDto;
 import com.restapi.smart.security.token.PreAuthorizationToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

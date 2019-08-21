@@ -1,7 +1,7 @@
 package com.restapi.smart.security.filters;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.restapi.smart.dtos.SocialLoginDto;
+import com.restapi.smart.security.dtos.SocialLoginDto;
 import com.restapi.smart.security.token.SocialPreAuthorizationToken;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.Authentication;

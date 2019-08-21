@@ -1,6 +1,6 @@
 package com.restapi.smart.security;
 
-import com.restapi.smart.domain.Account;
+import com.restapi.smart.security.domain.Account;
 import com.restapi.smart.security.jwt.JwtFactory;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class JwtFactoryTest {
     @Before
     public void setUp() {
         Account account = new Account();
-        log.error("userid: {}, password: {}, role: {}", account.getUserId(), account.getPassword(), account.getUserRole());
+        log.error("userid: {}, password: {}, role: {}", account.getUserid(), account.getUserpw(), account.getAuth());
         this.context = AccountContext.fromAccountModel(account);
     }
 

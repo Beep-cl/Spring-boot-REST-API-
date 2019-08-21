@@ -53,8 +53,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder getPasswordEncoder() {
-        return new BCryptPasswordEncoder();
+        return new UserPasswordEncode();
     }
+    //new BCryptPasswordEncoder();
 
     @Bean
     public ObjectMapper getObjectMapper() {
@@ -73,14 +74,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return filter;
     }
 
+    //jwt필터를 추가 /formlogin, /social 이름의 url을 찾아 필터링함
     protected JwtAuthenticationFilter jwtFilter() throws Exception {
         FilterSkipMatcher matcher = new FilterSkipMatcher(Arrays.asList("/formlogin", "/social"), "/api/**");
+        //TOKEN작동시킬 매핑 URL 객체 , 실패시 예외발생하는 객체,토큰내용을 DECODE하는 객체를 넘김
         JwtAuthenticationFilter filter = new JwtAuthenticationFilter(matcher, jwtFailureHandler, headerTokenExtractor);
         filter.setAuthenticationManager(super.authenticationManagerBean());
-
         return filter;
     }
 
+    //social 토큰을 검사하는 필터
     protected SocialLoginFilter socialFilter() throws Exception {
         SocialLoginFilter filter = new SocialLoginFilter("/social", formLoginAuthenticationSuccessHandler);
         filter.setAuthenticationManager(super.authenticationManagerBean());

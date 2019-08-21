@@ -4,7 +4,7 @@
 	    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.team.smart.persistance.UserDAO">
+<mapper namespace="com.restapi.smart.persistance.UserDAO">
 	<!-- 로그인 -->
 	<select id="selectMember" parameterType="String" resultMap="memberMap">
 		select userid,
@@ -13,25 +13,17 @@
 		from user_member_tbl
 		where userid = #{userid}
 	</select>
-	<resultMap type="java.util.Map" id="memberMap">
-		<id property="username" column="userid"/>
-		<result property="password" column="userpw"/>
+	<resultMap  type="com.restapi.smart.security.domain.Account" id="memberMap">
+		<id property="userid" column="userid"/>
+		<result property="userpw" column="userpw"/>
 		<result property="enabled" column="enabled"/>
-		<association property="authority" column="userid" select="getAuthority"/>
+		<association property="auth" column="userid" select="getAuthority"/>
 	</resultMap>
-	<select id="getAuthority" resultType="com.team.smart.security.config.UserGrantedAuthority">
+	<select id="getAuthority" resultType="com.restapi.smart.security.domain.UserGrantedAuthority">
 		 SELECT a.comp_auth, c.comp_loc, c.comp_seq
 		 FROM user_compauth_tbl a, t_contract_tbl c
 		 WHERE a.userid = #{userid}
 		 AND c.cont_seq = a.cont_seq
 	</select>
 	<!-- 로그인 -->
-	
-	<!-- 회원가입(회원등록) -->
-	<insert id="signUpUser" parameterType="com.team.smart.vo.UserVO">
-		insert into user_member_tbl(userid, userpw, name, email, hp) 
-    	values(#{userid}, #{userpw}, #{name}, #{email}, #{hp})
-	</insert>
-	
-	
 </mapper>

@@ -21,13 +21,12 @@ public class JwtFactory {
 
         String token = null;
 
-
-
+        //TODO mybatis변경으로 account 메소드도 변경됨
         try {
             token = JWT.create()
-                    .withIssuer("bomeehouse")
-                    .withClaim("USERNAME", context.getAccount().getUserId())
-                    .withClaim("USER_ROLE", context.getAccount().getUserRole().getRoleName())
+                    .withIssuer("kosmo50")
+                    .withClaim("USERNAME", context.getAccount().getUserid())
+                    .withClaim("USER_ROLE", context.getAccount().getAuth().toString())
                     .sign(generateAlgorithm());
 
         } catch (Exception e) {

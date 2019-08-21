@@ -1,7 +1,7 @@
-package com.restapi.smart.dtos
+package com.restapi.smart.security.dtos
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.restapi.smart.domain.SocialProviders
+import com.restapi.smart.security.domain.SocialProviders
 
 data class SocialLoginDto(
         @field:JsonProperty("provider")

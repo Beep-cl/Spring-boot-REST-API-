@@ -2,7 +2,7 @@ package com.restapi.smart.security.handlers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.restapi.smart.dtos.TokenDto;
+import com.restapi.smart.security.dtos.TokenDto;
 import com.restapi.smart.security.AccountContext;
 import com.restapi.smart.security.jwt.JwtFactory;
 import com.restapi.smart.security.token.PostAuthorizationToken;

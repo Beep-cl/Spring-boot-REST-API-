@@ -15,13 +15,14 @@ import org.springframework.web.bind.annotation.*;
 public class ApiController {
 
     @RequestMapping("signUp")
+    @PreAuthorize("hasRole('ROLE_USER')")
     public String sign(){
         return "정상동작";
     }
 
 
     @GetMapping("/hello")
-    @PreAuthorize("hasRole('ROLE_USER')")
+    @PreAuthorize("hasRole('ROLE_SYSMASTER')")
     public String getUsername(Authentication authentication) {
 
         PostAuthorizationToken token = (PostAuthorizationToken)authentication;

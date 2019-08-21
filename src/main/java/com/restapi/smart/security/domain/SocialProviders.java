@@ -1,4 +1,4 @@
-package com.restapi.smart.domain;
+package com.restapi.smart.security.domain;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.restapi.smart.security.social.KakaoUserProperty;

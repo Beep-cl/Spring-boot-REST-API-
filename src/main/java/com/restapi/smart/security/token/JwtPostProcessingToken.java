@@ -1,6 +1,6 @@
 package com.restapi.smart.security.token;
 
-import com.restapi.smart.domain.UserRole;
+import com.restapi.smart.security.domain.UserRole;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

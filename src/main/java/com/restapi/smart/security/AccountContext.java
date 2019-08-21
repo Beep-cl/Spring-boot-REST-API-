@@ -1,8 +1,10 @@
 package com.restapi.smart.security;
 
-import com.restapi.smart.domain.Account;
-import com.restapi.smart.domain.UserRole;
+import com.restapi.smart.security.domain.Account;
+import com.restapi.smart.security.domain.UserRole;
 import com.restapi.smart.security.token.JwtPostProcessingToken;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -16,6 +18,8 @@ public class AccountContext extends User {
 
     private Account account;
 
+    private static final Logger log = LoggerFactory.getLogger(AccountContextService.class);
+
     private AccountContext(Account account, String username, String password, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
         this.account = account;
@@ -25,8 +29,9 @@ public class AccountContext extends User {
         super(username, password, parseAuthorities(role));
     }
 
+    //TODO mybatis변경으로 account 메소드도 변경됨
     public static AccountContext fromAccountModel(Account account) {
-        return new AccountContext(account, account.getUserId(), account.getPassword(), parseAuthorities(account.getUserRole()));
+        return new AccountContext(account, account.getUserid(), account.getUserpw(), account.getAuth());
     }
 
     public static AccountContext fromJwtPostToken(JwtPostProcessingToken token) {
@@ -38,6 +43,7 @@ public class AccountContext extends User {
     }
 
     private static List<SimpleGrantedAuthority> parseAuthorities(String role) {
+        log.info(parseAuthorities(UserRole.getRoleByName(role)).toString());
         return parseAuthorities(UserRole.getRoleByName(role));
     }
 

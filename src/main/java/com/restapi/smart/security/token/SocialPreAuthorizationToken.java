@@ -1,7 +1,7 @@
 package com.restapi.smart.security.token;
 
 
-import com.restapi.smart.dtos.SocialLoginDto;
+import com.restapi.smart.security.dtos.SocialLoginDto;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 public class SocialPreAuthorizationToken extends UsernamePasswordAuthenticationToken {

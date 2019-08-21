@@ -1,4 +1,4 @@
-package com.restapi.smart.dtos
+package com.restapi.smart.security.dtos
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

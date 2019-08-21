@@ -1,11 +1,9 @@
 package com.restapi.smart.security.providers;
 
 
-import com.restapi.smart.domain.Account;
-import com.restapi.smart.domain.AccountRepository;
-import com.restapi.smart.domain.SocialProviders;
-import com.restapi.smart.domain.UserRole;
-import com.restapi.smart.dtos.SocialLoginDto;
+import com.restapi.smart.security.domain.Account;
+import com.restapi.smart.security.domain.SocialProviders;
+import com.restapi.smart.security.dtos.SocialLoginDto;
 import com.restapi.smart.security.AccountContext;
 import com.restapi.smart.security.services.specification.SocialFetchService;
 import com.restapi.smart.security.social.SocialUserProperty;
@@ -18,13 +16,11 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
-
 @Component
 public class SocialLoginAuthenticationProvider implements AuthenticationProvider {
 
-    @Autowired
-    private AccountRepository accountRepository;
+    //@Autowired
+    //private AccountRepository accountRepository;
 
     @Qualifier("socialFetchServiceProd")
     @Autowired
@@ -48,10 +44,10 @@ public class SocialLoginAuthenticationProvider implements AuthenticationProvider
 
         String userId = property.getUserId();
         SocialProviders provider = dto.getProvider();
-
-        return accountRepository.findBySocialIdAndSocialProvider(Long.valueOf(userId), provider)
-                .orElseGet(() -> accountRepository.save(
-                        new Account(null, property.getUserNickname(), "SOCIAL_USER", String.valueOf(UUID.randomUUID().getMostSignificantBits()), UserRole.USER, Long.valueOf(property.getUserId()), provider, property.getProfileHref())));
+        return null;
+//        return accountRepository.findBySocialIdAndSocialProvider(Long.valueOf(userId), provider)
+//                .orElseGet(() -> accountRepository.save(
+//                        new Account(null, property.getUserNickname(), "SOCIAL_USER", String.valueOf(UUID.randomUUID().getMostSignificantBits()), UserRole.USER, Long.valueOf(property.getUserId()), provider, property.getProfileHref())));
 
     }
 

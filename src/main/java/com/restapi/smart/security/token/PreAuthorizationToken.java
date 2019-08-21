@@ -1,9 +1,9 @@
 package com.restapi.smart.security.token;
 
 
-import com.restapi.smart.domain.SocialProviders;
-import com.restapi.smart.dtos.FormLoginDto;
-import com.restapi.smart.dtos.SocialLoginDto;
+import com.restapi.smart.security.domain.SocialProviders;
+import com.restapi.smart.security.dtos.FormLoginDto;
+import com.restapi.smart.security.dtos.SocialLoginDto;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
 public class PreAuthorizationToken extends UsernamePasswordAuthenticationToken {

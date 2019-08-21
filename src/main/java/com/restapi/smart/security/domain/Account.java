@@ -1,4 +1,21 @@
-package com.restapi.smart.domain
+package com.restapi.smart.security.domain;
+
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+//com.restapi.smart.security.domain.Account
+@Data   @NoArgsConstructor
+public class Account {
+    private String userid;
+    private String userpw;
+    private String enabled;
+    private List<UserGrantedAuthority> auth;
+}
+/*
+package com.restapi.smart.security.domain
 
 import javax.persistence.*
 
@@ -32,6 +49,5 @@ data class Account(
 
         @Column(name = "ACCOUNT_SOCIAL_PROFILEPIC")
         var profileHref: String? = null) {
-
-
 }
+ */
